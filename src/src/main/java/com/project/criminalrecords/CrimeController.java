@@ -1,9 +1,9 @@
-package com.example.criminalrecords;
+package com.project.criminalrecords;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class HelloController {
+public class CrimeController {
     @FXML
     private Label welcomeText;
 

@@ -1,4 +1,4 @@
-package com.example.criminalrecords;
+package com.project.criminalrecords;
 
 public class login {
     public static String check(String username, String pw, String logtxt){

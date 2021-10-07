@@ -3,6 +3,6 @@ module com.example.criminalrecords {
     requires javafx.fxml;
 
 
-    opens com.example.criminalrecords to javafx.fxml;
-    exports com.example.criminalrecords;
+    opens com.project.criminalrecords to javafx.fxml;
+    exports com.project.criminalrecords;
 }
