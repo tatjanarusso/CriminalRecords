@@ -1,4 +1,7 @@
 # CriminalRecords
 Project for M226 (Harald Müller)
 
-Further informations found => [Wiki](https://github.com/tatjanarusso/CriminalRecords/wiki)
+## Setup
+* Java 17
+* in Class dbLoader add your server info
+
