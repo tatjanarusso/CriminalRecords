@@ -85,7 +85,15 @@
                         </cellValueFactory>
                     </TableColumn>
                     <TableColumn text="Committed Crime/s" prefWidth="300">
-                        <cellValueFactory><PropertyValueFactory property="comCrime" />
+                        <cellValueFactory><PropertyValueFactory property="comCrimeCell" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Weapon" prefWidth="300">
+                        <cellValueFactory><PropertyValueFactory property="weaponCell" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Sentence" prefWidth="300">
+                        <cellValueFactory><PropertyValueFactory property="sentenceCell" />
                         </cellValueFactory>
                     </TableColumn>
                 </columns>

@@ -1,6 +1,10 @@
 package com.example.criminal_records.database;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.Driver;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 
 public class DBLoader {
     Connection con = null;
@@ -10,10 +14,10 @@ public class DBLoader {
             //importing driver
             Class.forName("com.mysql.jdbc.Driver");
 
-            //TODO: adding actual data
+            //TODO: if changing device, information may needs to be changed
             Connection con = DriverManager.getConnection(
-                    "jdbc:mysql://Url",
-                    "root", "password");
+                    "jdbc:mysql://localhost:3306/criminal_records",
+                    "root", "root");
             return con;
         } catch (SQLException | ClassNotFoundException e) {
             System.out.println(e);

@@ -12,7 +12,6 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
-<?import com.example.criminal_records.util.CheckBoxCellFactory?>
 <BorderPane xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.criminal_records.CrimeController">
     <padding>
@@ -47,27 +46,6 @@
             <fx:define>
                 <ToggleGroup fx:id="group" />
             </fx:define>
-
-            <RadioButton fx:id="rbExact" text="Exact" toggleGroup="$group"
-                         GridPane.columnIndex="0" GridPane.rowIndex="5" selected="true">
-            </RadioButton>
-
-            <RadioButton fx:id="rbContains" text="Contains" toggleGroup="$group"
-                         GridPane.columnIndex="0" GridPane.rowIndex="6">
-            </RadioButton>
-
-            <RadioButton fx:id="rbStartsWith" text="Starts with" toggleGroup="$group"
-                         GridPane.columnIndex="0" GridPane.rowIndex="7">
-            </RadioButton>
-
-            <RadioButton fx:id="rbEndsWith" text="Ends with" toggleGroup="$group"
-                         GridPane.columnIndex="0" GridPane.rowIndex="8">
-            </RadioButton>
-
-            <RadioButton fx:id="rbRegularExpression" text="Regular expression" toggleGroup="$group"
-                         GridPane.columnIndex="0" GridPane.rowIndex="9">
-            </RadioButton>
-
         </GridPane>
 
     </left>
@@ -86,11 +64,6 @@
                        editable="true"
                        VBox.vgrow="ALWAYS">
                 <columns>
-                    <TableColumn text="Select" prefWidth="100" fx:id="selected">
-                        <cellValueFactory><PropertyValueFactory property="selected" />
-                        </cellValueFactory>
-                        <cellFactory><CheckBoxCellFactory /></cellFactory>
-                    </TableColumn>
                     <TableColumn text="Forename" prefWidth="150" fx:id="forenameCell">
                         <cellValueFactory><PropertyValueFactory property="forenameCell" />
                         </cellValueFactory>
@@ -111,12 +84,16 @@
                         <cellValueFactory><PropertyValueFactory property="weightCell" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn text="Ethnicity" prefWidth="100" fx:id="ethnicityCell">
-                        <cellValueFactory><PropertyValueFactory property="ethnicityCell" />
+                    <TableColumn text="Committed Crime/s" prefWidth="300">
+                        <cellValueFactory><PropertyValueFactory property="comCrimeCell" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn text="Committed Crime/s" prefWidth="300">
-                        <cellValueFactory><PropertyValueFactory property="comCrime" />
+                    <TableColumn text="Weapon" prefWidth="300">
+                        <cellValueFactory><PropertyValueFactory property="weaponCell" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Sentence" prefWidth="300">
+                        <cellValueFactory><PropertyValueFactory property="sentenceCell" />
                         </cellValueFactory>
                     </TableColumn>
                 </columns>

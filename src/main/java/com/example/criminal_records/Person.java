@@ -1,12 +1,14 @@
-package com.example.criminal_records.database;
+package com.example.criminal_records;
 
 public class Person {
     private String foreName = null;
-    private String Surname = null;
-    private Integer Age = null;
-    private Integer Height = null;
+    private String surname = null;
+    private Integer age = null;
+    private Integer height = null;
     private Integer weight = null;
-    private String Crimes = null;
+    private String comCrimes = null;
+    private String weapon = null;
+    private String sentence = null;
 
     public String getForeName() {
         return foreName;
@@ -17,27 +19,27 @@ public class Person {
     }
 
     public String getSurname() {
-        return Surname;
+        return surname;
     }
 
     public void setSurname(String surname) {
-        Surname = surname;
+        surname = surname;
     }
 
     public Integer getAge() {
-        return Age;
+        return age;
     }
 
     public void setAge(Integer age) {
-        Age = age;
+        age = age;
     }
 
     public Integer getHeight() {
-        return Height;
+        return height;
     }
 
     public void setHeight(Integer height) {
-        Height = height;
+        height = height;
     }
 
     public Integer getWeight() {
@@ -49,10 +51,18 @@ public class Person {
     }
 
     public String getCrimes() {
-        return Crimes;
+        return comCrimes;
     }
 
     public void setCrimes(String crimes) {
-        Crimes = crimes;
+        comCrimes = crimes;
     }
+
+    public String getWeapon() { return weapon; }
+
+    public void setWeapon(String weapon) { this.weapon = weapon; }
+
+    public String getSentence() { return sentence; }
+
+    public void setSentence(String sentence) { this.sentence = sentence; }
 }
