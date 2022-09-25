@@ -1,3 +1,8 @@
+USE criminal_records;
+
+INSERT INTO `users` (`first_name`, `last_name`, `password`)
+VALUES ("Hans", "Meier", "pwd");
+
 INSERT INTO `plz` (`plz`,`ort`)
 VALUES
   (1000,"Nordrhein-Westphalen"),

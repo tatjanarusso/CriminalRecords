@@ -40,3 +40,11 @@ CREATE TABLE criminals(
     FOREIGN KEY (address_id) REFERENCES address(address_id),
     FOREIGN KEY (crime_id) REFERENCES crime(crime_id)
 );
+
+CREATE TABLE users(
+    user_id int NOT NULL,
+    first_name varchar(255) NOT NULL,
+    last_name varchar(255) NOT NULL,
+    password varchar(255) NOT NULL,
+    PRIMARY KEY (user_id)
+);
