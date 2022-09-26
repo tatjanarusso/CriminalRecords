@@ -1,4 +1,7 @@
-C:\src\CriminalRecords\src\main\java\com\example\criminal_records\CrimeApplication.java
-C:\src\CriminalRecords\src\main\java\com\example\criminal_records\util\CheckBoxCellFactory.java
-C:\src\CriminalRecords\src\main\java\module-info.java
-C:\src\CriminalRecords\src\main\java\com\example\criminal_records\CrimeController.java
+/home/jl/src/tetst/CriminalRecords/src/main/java/module-info.java
+/home/jl/src/tetst/CriminalRecords/src/main/java/com/example/criminal_records/CrimeApplication.java
+/home/jl/src/tetst/CriminalRecords/src/main/java/com/example/criminal_records/CrimeController.java
+/home/jl/src/tetst/CriminalRecords/src/main/java/com/example/criminal_records/Person.java
+/home/jl/src/tetst/CriminalRecords/src/main/java/com/example/criminal_records/util/CheckBoxCellFactory.java
+/home/jl/src/tetst/CriminalRecords/src/main/java/com/example/criminal_records/database/DBLoader.java
+/home/jl/src/tetst/CriminalRecords/src/main/java/com/example/criminal_records/database/DatabaseCommandExecutor.java

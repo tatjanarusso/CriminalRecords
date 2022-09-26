@@ -28,6 +28,7 @@ public class DatabaseCommandExecutor {
         try{
             //getting data from db
             String sql = "SELECT * "+ " FROM " + table + " WHERE " + condition +  ";";
+            System.out.println(sql);
             resultSet = executeSql(sql);
             return resultSet;
         }catch(SQLException e) {

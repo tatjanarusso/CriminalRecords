@@ -64,36 +64,28 @@
                        editable="true"
                        VBox.vgrow="ALWAYS">
                 <columns>
-                    <TableColumn text="Forename" prefWidth="150" fx:id="forenameCell">
-                        <cellValueFactory><PropertyValueFactory property="forenameCell" />
+                    <TableColumn text="Forename" prefWidth="150">
+                        <cellValueFactory><PropertyValueFactory property="foreName" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn text="Surname" prefWidth="150" fx:id="surnameCell">
-                        <cellValueFactory><PropertyValueFactory property="surnameCell" />
+                    <TableColumn text="Surname" prefWidth="150">
+                        <cellValueFactory><PropertyValueFactory property="surname" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn text="Age" prefWidth="100" fx:id="ageCell">
-                        <cellValueFactory><PropertyValueFactory property="ageCell" />
-                        </cellValueFactory>
-                    </TableColumn>
-                    <TableColumn text="Height" prefWidth="100" fx:id="heightCell">
-                        <cellValueFactory><PropertyValueFactory property="heightCell" />
-                        </cellValueFactory>
-                    </TableColumn>
-                    <TableColumn text="Weight" prefWidth="100" fx:id="weightCell">
-                        <cellValueFactory><PropertyValueFactory property="weightCell" />
+                    <TableColumn text="Age" prefWidth="100">
+                        <cellValueFactory><PropertyValueFactory property="Age" />
                         </cellValueFactory>
                     </TableColumn>
                     <TableColumn text="Committed Crime/s" prefWidth="300">
-                        <cellValueFactory><PropertyValueFactory property="comCrimeCell" />
+                        <cellValueFactory><PropertyValueFactory property="crimes" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn text="Weapon" prefWidth="300">
-                        <cellValueFactory><PropertyValueFactory property="weaponCell" />
+                    <TableColumn text="Weapon/s used" prefWidth="300">
+                        <cellValueFactory><PropertyValueFactory property="weapon" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn text="Sentence" prefWidth="300">
-                        <cellValueFactory><PropertyValueFactory property="sentenceCell" />
+                    <TableColumn text="Sentence/s" prefWidth="300">
+                        <cellValueFactory><PropertyValueFactory property="sentence" />
                         </cellValueFactory>
                     </TableColumn>
                 </columns>
