@@ -19,50 +19,34 @@ public class CrimeController {
     @FXML private PasswordField pwField;
     @FXML private Button loginButton;
     @FXML private Button searchButton;
-    @FXML private TableColumn selected;
     @FXML private TableView tableView;
     @FXML private TextField forename;
     @FXML private TextField surname;
 
-    private boolean isPolice = false;
+    private DatabaseCommandExecutor db;
 
-    //Login view
+    public CrimeController() {
+        db = new DatabaseCommandExecutor();
+    }
+
     @FXML
-    protected void onLoginClick() throws IOException {
+    protected void onLoginClick() throws IOException, SQLException {
         loginButton.setDisable(true);
         loginCheck(userField.getText(), pwField.getText());
         loginButton.setDisable(false);
     }
 
     //checks if input is correct and connects to the following page
-    private void loginCheck(String user, String pw) throws IOException {
-        //Users
-        String userPolice = "police";
-        String userCivil = "civil";
-        //pws
-        String pwPolice = "police1";
-        String pwCivil = "civil1";
+    private void loginCheck(String user, String pw) throws IOException, SQLException {
         Stage stage = new Stage();
-
-        if(userCivil.equals(user) && pwCivil.equals(pw)){
-            System.out.println("Welcome civil man!");
-
-            FXMLLoader fxmlLoader = new FXMLLoader(CrimeApplication.class.getResource("civil-view.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 1500, 600);
-            stage.setTitle("Hello Civil!");
-            stage.setScene(scene);
-            stage.show();
-        }
-        else if(userPolice.equals(user) && pwPolice.equals(pw)){
+        ResultSet userResultset =  db.getFiltered("users", "users.user_name=\"" + user + "\" AND users.password=\"" + pw + "\"");
+        if(userResultset.isBeforeFirst()){
             System.out.println("Welcome police man");
-            isPolice = true;
-
             FXMLLoader fxmlLoader = new FXMLLoader(CrimeApplication.class.getResource("police-view.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 1500, 600);
             stage.setTitle("Hello Police!");
             stage.setScene(scene);
             stage.show();
-
         }
         else {
             System.out.println("Wrong password or user");
@@ -70,28 +54,22 @@ public class CrimeController {
 
     }
 
-
     //Button function for the pages
     @FXML
     protected void onSearchClick(){
         searchButton.setDisable(true);
-        DatabaseCommandExecutor db = new DatabaseCommandExecutor ();
-
-        selected.setCellFactory(CheckBoxTableCell.forTableColumn(selected));
-
         List<Person> people = new ArrayList<>();
-
         if(forename.getText().trim().isEmpty() && surname.getText().trim().isEmpty()){
             people = setPeople(db.getTable("criminals"), db);
         }
-        if(forename.getText().trim().isEmpty() != true && surname.getText().trim().isEmpty()){
-            people = setPeople(db.getFiltered("criminals", "first_name=" + forename.getText()), db);
+        else if(forename.getText().trim().isEmpty() != true && surname.getText().trim().isEmpty()){
+            people = setPeople(db.getFiltered("criminals", "criminals.first_name=\"" + forename.getText() + "\""), db);
         }
-        if(forename.getText().trim().isEmpty() && surname.getText().trim().isEmpty() != false){
-            people = setPeople(db.getFiltered("criminals", "last_name=" + surname.getText()), db);
+        else if(forename.getText().trim().isEmpty() && surname.getText().trim().isEmpty() != true){
+            people = setPeople(db.getFiltered("criminals", "criminals.last_name=\"" + surname.getText() + "\""), db);
         }
-        if(forename.getText().trim().isEmpty() != true && surname.getText().trim().isEmpty() != true){
-            people = setPeople(db.getFiltered("criminals", "first_name=" + forename.getText() + " and last_name=" + surname.getText()), db);
+        else if(forename.getText().trim().isEmpty() != true && surname.getText().trim().isEmpty() != true){
+            people = setPeople(db.getFiltered("criminals", "criminals.first_name=\"" + forename.getText() + "\" and last_name=\"" + surname.getText() + "\""), db);
         }
 
         // Setting data for Tableview
@@ -104,7 +82,7 @@ public class CrimeController {
 
     @FXML
     protected void onClearClick(){
-        tableView.getItems ().clear ();
+        tableView.getItems().clear();
     }
 
     private List<Person> setPeople(ResultSet resultSet, DatabaseCommandExecutor db){
@@ -112,25 +90,15 @@ public class CrimeController {
         try {
             while(resultSet.next()){
                 Person person = new Person ();
-                person.setForeName(resultSet.getString("first_name"));
-                person.setSurname (resultSet.getString("last_name"));
-                person.setAge(resultSet.getInt("age"));
-                person.setAge(resultSet.getInt("height"));
-                person.setAge(resultSet.getInt("weight"));
-
-                //getting crime if Officer, else censor the crime
                 String comCrime = "";
                 String sentence = "";
                 String weapon =  "";
-                if(isPolice){
-                    ResultSet crime = db.getFiltered("crime", " crime_id=" + resultSet.getInt ("crime_id"));
-                    comCrime = crime.getString("crime") + " weapon" + crime.getString ("crime");
-                    sentence = crime.getString("crime") + " weapon" + crime.getString ("weapon");
-                    weapon = crime.getString("crime") + " weapon" + crime.getString ("sentence");
-                } else {
-
+                ResultSet resultsetCrime = db.getFiltered("crime", " crime_id=" + resultSet.getInt ("crime_id"));
+                while(resultsetCrime.next()) {
+                    comCrime += resultsetCrime.getString (2);
+                    sentence += resultsetCrime.getString(3);
+                    weapon += resultsetCrime.getString(6);
                 }
-
                 person.setCrimes(comCrime);
                 person.setWeapon(weapon);
                 person.setSentence(sentence);

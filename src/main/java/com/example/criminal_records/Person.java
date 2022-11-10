@@ -1,21 +1,21 @@
 package com.example.criminal_records;
 
 public class Person {
-    private String foreName = null;
-    private String surname = null;
-    private Integer age = null;
-    private Integer height = null;
-    private Integer weight = null;
-    private String comCrimes = null;
-    private String weapon = null;
-    private String sentence = null;
+    public String forename = null;
+    public String surname = null;
+    public Integer age = null;
+    public Integer height = null;
+    public Integer weight = null;
+    public String comCrimes = null;
+    public String weapon = null;
+    public String sentence = null;
 
     public String getForeName() {
-        return foreName;
+        return forename;
     }
 
     public void setForeName(String foreName) {
-        this.foreName = foreName;
+        this.forename = foreName;
     }
 
     public String getSurname() {
@@ -23,7 +23,7 @@ public class Person {
     }
 
     public void setSurname(String surname) {
-        surname = surname;
+        this.surname = surname;
     }
 
     public Integer getAge() {
@@ -31,7 +31,7 @@ public class Person {
     }
 
     public void setAge(Integer age) {
-        age = age;
+        this.age = age;
     }
 
     public Integer getHeight() {
@@ -39,7 +39,7 @@ public class Person {
     }
 
     public void setHeight(Integer height) {
-        height = height;
+        this.height = height;
     }
 
     public Integer getWeight() {

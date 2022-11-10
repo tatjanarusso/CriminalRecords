@@ -4,7 +4,7 @@ module com.example.criminal_records {
     requires java.sql;
 
 
-    opens com.example.criminal_records to javafx.fxml;
+    opens com.example.criminal_records to javafx.fxml, javafx.base;
     exports com.example.criminal_records;
     exports com.example.criminal_records.util;
     opens com.example.criminal_records.util to javafx.fxml;

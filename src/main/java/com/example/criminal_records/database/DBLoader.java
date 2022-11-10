@@ -12,7 +12,7 @@ public class DBLoader {
     public Connection connectDB() {
         try {
             //importing driver
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
 
             //TODO: if changing device, information may needs to be changed
             Connection con = DriverManager.getConnection(

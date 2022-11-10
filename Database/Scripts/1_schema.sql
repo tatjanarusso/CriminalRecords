@@ -36,7 +36,14 @@ CREATE TABLE criminals(
     height int NOT NULL,
     weight int NOT NULL,
     race varchar(255),
-    PRIMARY KEY (criminal_id),
     FOREIGN KEY (address_id) REFERENCES address(address_id),
-    FOREIGN KEY (crime_id) REFERENCES crime(crime_id)
+    FOREIGN KEY (crime_id) REFERENCES crime(crime_id),
+    PRIMARY KEY (criminal_id)
+);
+
+CREATE TABLE users(
+    user_id int NOT NULL AUTO_INCREMENT,
+    user_name varchar(255) NOT NULL,
+    password varchar(255) NOT NULL,
+    PRIMARY KEY (user_id)
 );

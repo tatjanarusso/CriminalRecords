@@ -1,6 +1,8 @@
 package com.example.criminal_records.database;
 
 import java.sql.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class DatabaseCommandExecutor {
     Connection connection = null;
@@ -28,6 +30,7 @@ public class DatabaseCommandExecutor {
         try{
             //getting data from db
             String sql = "SELECT * "+ " FROM " + table + " WHERE " + condition +  ";";
+            System.out.println(sql);
             resultSet = executeSql(sql);
             return resultSet;
         }catch(SQLException e) {
@@ -37,8 +40,18 @@ public class DatabaseCommandExecutor {
     }
 
     private ResultSet executeSql(String sql) throws SQLException {
-        preparedStatement = connection.prepareStatement(sql);
-        ResultSet results = preparedStatement.executeQuery();
-        return results;
+        if(hasInjection(sql)) {
+            throw new SQLException("Found an Injection in this sql command: " + sql);
+        } else {
+            preparedStatement = connection.prepareStatement(sql);
+            ResultSet results = preparedStatement.executeQuery();
+            return results;
+        }
+    }
+
+    private boolean hasInjection(String argument) {
+        Pattern p = Pattern.compile("'(''|[^'])*'\n");
+        Matcher m = p.matcher(argument);
+        return m.matches();
     }
 }

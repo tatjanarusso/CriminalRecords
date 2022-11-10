@@ -1,4 +1,7 @@
-C:\src\CriminalRecords\src\main\java\com\example\criminal_records\CrimeApplication.java
-C:\src\CriminalRecords\src\main\java\com\example\criminal_records\util\CheckBoxCellFactory.java
-C:\src\CriminalRecords\src\main\java\module-info.java
-C:\src\CriminalRecords\src\main\java\com\example\criminal_records\CrimeController.java
+S:\Projects\java\.github\CriminalRecords\src\main\java\com\example\criminal_records\database\DatabaseCommandExecutor.java
+S:\Projects\java\.github\CriminalRecords\src\main\java\com\example\criminal_records\Person.java
+S:\Projects\java\.github\CriminalRecords\src\main\java\module-info.java
+S:\Projects\java\.github\CriminalRecords\src\main\java\com\example\criminal_records\util\CheckBoxCellFactory.java
+S:\Projects\java\.github\CriminalRecords\src\main\java\com\example\criminal_records\CrimeController.java
+S:\Projects\java\.github\CriminalRecords\src\main\java\com\example\criminal_records\CrimeApplication.java
+S:\Projects\java\.github\CriminalRecords\src\main\java\com\example\criminal_records\database\DBLoader.java
